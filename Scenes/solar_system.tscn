@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://datjdohaxqwps"]
+
+[ext_resource type="Script" path="res://OrbitalsGenerationScripts/solarSystemScaling.gd" id="1_ijyjl"]
+[ext_resource type="Script" path="res://OrbitalsGenerationScripts/planetGeneration.gd" id="1_jhgbg"]
+
+[node name="Solar System" type="Node2D"]
+script = ExtResource("1_ijyjl")
+
+[node name="Orbitals" type="Node2D" parent="."]
+
+[node name="Planet Container" type="Node2D" parent="Orbitals"]
+script = ExtResource("1_jhgbg")
+radiusHalfSize = 50.0
+posXHalfSize = 1000.0
+
+[node name="Moon Container" type="Node2D" parent="Orbitals/Planet Container"]
+
+[node name="Asteroid Container" type="Node2D" parent="Orbitals"]
+
+[node name="Star Container" type="Node2D" parent="."]

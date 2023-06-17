@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://p15qlh882irx"]
+
+[ext_resource type="Script" path="res://OrbitalsGenerationScripts/timeKeeper.gd" id="1_ftw0e"]
+
+[node name="Time Keeper" type="Node"]
+script = ExtResource("1_ftw0e")
+debug = true
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="playButton" type="Button" parent="GUI"]
+offset_left = 114.0
+offset_top = 617.0
+offset_right = 209.0
+offset_bottom = 648.0
+text = "Play"
+
+[connection signal="pressed" from="GUI/playButton" to="." method="_on_play_button_pressed"]
