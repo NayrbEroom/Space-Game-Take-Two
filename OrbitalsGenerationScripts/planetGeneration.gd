@@ -57,11 +57,12 @@ func _ready():
 		var radius = data["Diameter (km)"]
 		var scale_factor = Vector2(radius, radius) / radiusHalfSize
 		sprite.scale *= scale_factor
+		
 		# tree manipulation
 		self.add_child(planet)
 		Logger.log_node(get_tree().root)
 
-		# rest
+		# fin
 		if debug: 
 			print("Planet name: " + str(planet.name))
 			print("Planet position: " + str(planet.position))

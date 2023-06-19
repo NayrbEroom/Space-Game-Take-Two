@@ -19,11 +19,12 @@ func _ready():
 		# your other code here...
 
 func log_message(message):
-	var timestamp = Time.get_ticks_msec()
-	var file = FileAccess.open(log_file, FileAccess.READ_WRITE)
-	file.seek_end()
-	file.store_string("Tick time: [" + str(timestamp) + "] " + message + "\n")
-	file = null  # This will close the file
+	if toggle:
+		var timestamp = Time.get_ticks_msec()
+		var file = FileAccess.open(log_file, FileAccess.READ_WRITE)
+		file.seek_end()
+		file.store_string("Tick time: [" + str(timestamp) + "] " + message + "\n")
+		file = null  # This will close the file
 
 func log_node(node, indent=0):
 	var indent_spaces = " ".repeat(indent)

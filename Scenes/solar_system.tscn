@@ -11,11 +11,11 @@ script = ExtResource("1_ijyjl")
 [node name="Planet Container" type="Node2D" parent="Orbitals"]
 script = ExtResource("1_jhgbg")
 debug = true
-radiusHalfSize = 50.0
-posXHalfSize = 1000.0
-
-[node name="Moon Container" type="Node2D" parent="Orbitals/Planet Container"]
+radiusHalfSize = 25.0
+posXHalfSize = 750.0
 
 [node name="Asteroid Container" type="Node2D" parent="Orbitals"]
+
+[node name="Moon Container" type="Node2D" parent="Orbitals"]
 
 [node name="Star Container" type="Node2D" parent="."]
