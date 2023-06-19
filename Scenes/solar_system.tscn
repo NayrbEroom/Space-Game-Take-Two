@@ -10,6 +10,7 @@ script = ExtResource("1_ijyjl")
 
 [node name="Planet Container" type="Node2D" parent="Orbitals"]
 script = ExtResource("1_jhgbg")
+debug = true
 radiusHalfSize = 50.0
 posXHalfSize = 1000.0
 
