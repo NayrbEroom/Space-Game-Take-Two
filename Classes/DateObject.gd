@@ -1,4 +1,4 @@
-extends Object
+extends Node
 
 class_name DateObject
 
@@ -51,6 +51,10 @@ func setYear(value : int) -> void:
 
 func getYear() -> int:
 	return year
+
+# func getFullDate() -> int:
+#TODO: someway of returning the full date that is not a string
+	
 
 func printDate():
 	print("Date: %s/%s/%s" % [day, month, year])

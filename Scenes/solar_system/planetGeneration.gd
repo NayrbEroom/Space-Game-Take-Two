@@ -6,6 +6,7 @@ extends Node2D
 var posYHalfSize = posXHalfSize
 
 @onready var timeKeeper = get_node("/root/Main/Time Keeper")
+@onready var globalDate = Global.globalDate
 
 var Planet = preload("res://Classes/Planet.gd")
 
@@ -46,7 +47,8 @@ func _ready():
 		planet.orbit_radius = planetXPosition / posXHalfSize
 
 		# Calculate the position of the planet
-		var angle = randf_range(0, 2 * PI)  # Random angle in radians
+		var daysPassed = globalDate.getDay() + globalDate.getMonth() * 30 + globalDate.getYear() * 365
+		var angle = (daysPassed * 2 * PI) / planet.orbital_period_days  # Angle based on the number of days passed and the planet's orbital period
 		planet.position.x = planet.orbit_radius * cos(angle)
 		planet.position.y = planet.orbit_radius * sin(angle)
 
@@ -70,10 +72,10 @@ func _ready():
 			print("Planet sprite scale: " + str(sprite.scale))
 			print("=====================")
 
-func createSprite(imagePath, name):
+func createSprite(imagePath, spriteName):
 	var sprite = Sprite2D.new()
 	sprite.texture = load(imagePath)
-	sprite.name = name + " Sprite"
+	sprite.name = spriteName + " Sprite"
 	#sprite is returned as an object
 	return sprite
 

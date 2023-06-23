@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Logger="*res://Tools/tools_logMessage.gd"
 FileReader="*res://Tools/tools_JSONToGodot.gd"
+Global="*res://Tools/tools_globals.gd"
 
 [input]
 
