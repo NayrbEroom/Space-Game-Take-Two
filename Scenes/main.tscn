@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ddgo67e6ieaqg"]
 
 [ext_resource type="PackedScene" uid="uid://datjdohaxqwps" path="res://Scenes/solar_system.tscn" id="1_c13n6"]
-[ext_resource type="Script" path="res://OrbitalsGenerationScripts/mainCamera.gd" id="2_hsu0f"]
+[ext_resource type="Script" path="res://Scenes/main/mainCamera.gd" id="2_nwgbq"]
 [ext_resource type="PackedScene" uid="uid://p15qlh882irx" path="res://Scenes/time_keeper.tscn" id="3_2pccp"]
 
 [node name="Main" type="Node2D"]
@@ -10,9 +10,8 @@ metadata/_edit_vertical_guides_ = [-424.0]
 [node name="Solar System" parent="." instance=ExtResource("1_c13n6")]
 
 [node name="Main Camera" type="Camera2D" parent="."]
-script = ExtResource("2_hsu0f")
+script = ExtResource("2_nwgbq")
 panSpeed = 10.0
 zoomIncrement = 1.0
 
 [node name="Time Keeper" parent="." instance=ExtResource("3_2pccp")]
-debug = false

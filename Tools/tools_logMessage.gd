@@ -6,7 +6,6 @@ var log_file = "res://log.txt"
 
 
 func _ready():
-	print("Toggle: " + str(toggle))
 	if toggle: 
 		var file = FileAccess.open(log_file, FileAccess.READ_WRITE)
 		if file == null:

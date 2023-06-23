@@ -1,10 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://p15qlh882irx"]
 
-[ext_resource type="Script" path="res://OrbitalsGenerationScripts/timeKeeper.gd" id="1_ftw0e"]
+[ext_resource type="Script" path="res://Scenes/time_keeper/timeKeeper.gd" id="1_3sb2p"]
 
 [node name="Time Keeper" type="Node"]
-script = ExtResource("1_ftw0e")
-debug = true
+script = ExtResource("1_3sb2p")
 
 [node name="GUI" type="CanvasLayer" parent="."]
 

@@ -13,6 +13,7 @@ var Planet = preload("res://Classes/Planet.gd")
 func _ready():
 	var planetInput = FileReader.read_file("res://sol_planets.json")
 
+
 	for planetName in planetInput:
 		var planet = Planet.new()  # Create a new instance of the Planet class
 		var data = planetInput[planetName]  # Get the data for this planet from the JSON file
