@@ -1,47 +1,50 @@
 extends Node2D
 
+class_name Planet 
 
-var mass_kg: float
-var diameter_km: float
-var density_kg_m3: float
-var gravity_m_s2: float
-var escape_velocity_km_s: float
-var rotation_period_hours: float
-var length_of_day_hours: float
-var distance_from_sun_km: int
-var perihelion_km: int
-var aphelion_km: int
-var orbital_period_days: float
-var orbital_velocity_km_s: float
+var mass: String #kg
+var diameter: float #km
+var density: float #kg/m^3
+var gravity: float #m/s^2
+var escape_velocity: float #km/s
+var rotation_period: float #hours
+var length_of_day: float #hours
+var distance_from_sun: int #km
+var perihelion: int #km
+var aphelion: int #km
+var orbital_period: float #days
+var orbital_velocity: float #km/s
 var orbital_inclination_degrees: float
 var orbital_eccentricity: float
 var obliquity_to_orbit_degrees: float
-var mean_temperature_celsius: int
-var surface_pressure_bars: int
+var mean_temperature: int #celsius
+var surface_pressure: int #bars
 var number_of_moons: int
 var ring_system: bool
 var global_magnetic_field: bool
-var orbit_angle: float = 0.0
-var orbit_radius: int = 0
+var orbit_angle: float
+var orbit_radius: int
 
 func _init():
-	mass_kg = 0.0
-	diameter_km = 0.0
-	density_kg_m3 = 0.0
-	gravity_m_s2 = 0.0
-	escape_velocity_km_s = 0.0
-	rotation_period_hours = 0.0
-	length_of_day_hours = 0.0
-	distance_from_sun_km = 0
-	perihelion_km = 0
-	aphelion_km = 0
-	orbital_period_days = 0.0
-	orbital_velocity_km_s = 0.0
+	mass = ""
+	diameter = 0.0
+	density = 0.0
+	gravity = 0.0
+	escape_velocity = 0.0
+	rotation_period = 0.0
+	length_of_day = 0.0
+	distance_from_sun = 0
+	perihelion = 0
+	aphelion = 0
+	orbital_period = 0.0
+	orbital_velocity = 0.0
 	orbital_inclination_degrees = 0.0
 	orbital_eccentricity = 0.0
 	obliquity_to_orbit_degrees = 0.0
-	mean_temperature_celsius = 0
-	surface_pressure_bars = 0
+	mean_temperature = 0
+	surface_pressure = 0
 	number_of_moons = 0
 	ring_system = false
 	global_magnetic_field = false
+	orbit_angle = 0.0
+	orbit_radius = 0
