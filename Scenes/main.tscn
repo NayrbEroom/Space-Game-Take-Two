@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddgo67e6ieaqg"]
+[gd_scene load_steps=5 format=3 uid="uid://ddgo67e6ieaqg"]
 
 [ext_resource type="PackedScene" uid="uid://datjdohaxqwps" path="res://Scenes/solar_system.tscn" id="1_c13n6"]
 [ext_resource type="Script" path="res://Scenes/main/main.gd" id="1_eof0r"]
 [ext_resource type="Script" path="res://Scenes/main/mainCamera.gd" id="2_nwgbq"]
 [ext_resource type="PackedScene" uid="uid://p15qlh882irx" path="res://Scenes/time_keeper.tscn" id="3_2pccp"]
-[ext_resource type="Script" path="res://Scenes/solar_system/planetGeneration copy.gd" id="4_6xju8"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_eof0r")
@@ -13,7 +12,6 @@ metadata/_edit_vertical_guides_ = [-424.0]
 [node name="Time Keeper" parent="." instance=ExtResource("3_2pccp")]
 
 [node name="Solar System" parent="." instance=ExtResource("1_c13n6")]
-script = ExtResource("4_6xju8")
 
 [node name="Main Camera" type="Camera2D" parent="."]
 script = ExtResource("2_nwgbq")
@@ -22,11 +20,19 @@ zoomIncrement = 1.0
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
-[node name="playButton" type="Button" parent="GUI"]
-offset_left = 114.0
-offset_top = 617.0
-offset_right = 209.0
-offset_bottom = 648.0
-text = "Play"
+[node name="oneDay" type="Button" parent="GUI"]
+offset_left = 64.0
+offset_top = 608.0
+offset_right = 159.0
+offset_bottom = 639.0
+text = "+1 Day"
 
-[connection signal="pressed" from="GUI/playButton" to="Time Keeper" method="_on_play_button_pressed"]
+[node name="fiveDay" type="Button" parent="GUI"]
+offset_left = 160.0
+offset_top = 608.0
+offset_right = 255.0
+offset_bottom = 639.0
+text = "+5 Day"
+
+[connection signal="pressed" from="GUI/oneDay" to="Time Keeper" method="_on_one_day_pressed"]
+[connection signal="pressed" from="GUI/fiveDay" to="Time Keeper" method="_on_five_day_pressed"]

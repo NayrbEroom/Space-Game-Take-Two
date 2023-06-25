@@ -15,7 +15,6 @@ func _ready():
 			file.store_string("\n------ New Session ------\n")
 		file = null  # This will close the file
 	#BUG: current bug that is not logging New Session on new iteration of game window not immediately an issue
-		# your other code here...
 
 func log_message(message):
 	if toggle:

@@ -5,11 +5,17 @@ class_name DateObject
 var day : int
 var month : int
 var year : int
+var seconds : int
 
-func _init(day : int, month : int, year : int):
+@warning_ignore("shadowed_variable")
+func _init(day : int, month : int, year : int, seconds : int):
 	self.day = day
 	self.month = month
 	self.year = year
+	self.seconds = seconds
+
+#-------------------------------------------------------------
+#setget functions
 
 func setDay(value : int) -> void:
 	if value >= 1 and value <= 31:
@@ -18,15 +24,6 @@ func setDay(value : int) -> void:
 func getDay() -> int:
 	return day
 
-func advanceDay(amount):
-	day += amount
-	while day > daysInMonth(month, year):
-		day -= daysInMonth(month, year)
-		month += 1
-		if month > 12:
-			month = 1
-			year += 1
-
 func setMonth(value : int) -> void:
 	if value >= 1 and value <= 12:
 		month = value
@@ -34,6 +31,39 @@ func setMonth(value : int) -> void:
 func getMonth() -> int:
 	return month
 
+func setYear(value : int) -> void:
+	if value > 0:
+		year = value
+
+func getYear() -> int:
+	return year
+
+#-------------------------------------------------------------
+#non setget functions
+
+func advanceSeconds(amount: int) -> void:    
+	var secondsInDay = 86400
+	
+	var totalSeconds = self.seconds + amount
+	@warning_ignore("integer_division")
+	var totalDays = totalSeconds / secondsInDay
+	self.seconds = totalSeconds % secondsInDay
+	
+	# Update the date
+	while totalDays > 0:
+		var daysInCurrentMonth = self.daysInMonth(month, year)
+		if self.day + totalDays <= daysInCurrentMonth:
+			self.day += totalDays
+			totalDays = 0
+		else:
+			totalDays -= (daysInCurrentMonth - self.day + 1)
+			self.day = 1
+			self.month += 1
+			if self.month > 12:
+				self.month = 1
+				self.year += 1
+
+@warning_ignore("shadowed_variable")
 func daysInMonth(month, year) -> int: 
 	if month in [4, 6, 9, 11]:
 		return 30
@@ -45,16 +75,5 @@ func daysInMonth(month, year) -> int:
 	else:
 		return 31
 
-func setYear(value : int) -> void:
-	if value > 0:
-		year = value
-
-func getYear() -> int:
-	return year
-
-# func getFullDate() -> int:
-#TODO: someway of returning the full date that is not a string
-	
-
 func printDate():
-	print("Date: %s/%s/%s" % [day, month, year])
+	print("Date: %s/%s/%s/%s" % [day, month, year, seconds])

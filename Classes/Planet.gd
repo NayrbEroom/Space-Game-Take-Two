@@ -14,9 +14,9 @@ var perihelion: int #km
 var aphelion: int #km
 var orbital_period: float #days
 var orbital_velocity: float #km/s
-var orbital_inclination_degrees: float
+var orbital_inclination: float #degrees
 var orbital_eccentricity: float
-var obliquity_to_orbit_degrees: float
+var obliquity_to_orbit: float #degrees
 var mean_temperature: int #celsius
 var surface_pressure: int #bars
 var number_of_moons: int
@@ -38,9 +38,9 @@ func _init():
 	aphelion = 0
 	orbital_period = 0.0
 	orbital_velocity = 0.0
-	orbital_inclination_degrees = 0.0
+	orbital_inclination = 0.0
 	orbital_eccentricity = 0.0
-	obliquity_to_orbit_degrees = 0.0
+	obliquity_to_orbit = 0.0
 	mean_temperature = 0
 	surface_pressure = 0
 	number_of_moons = 0
