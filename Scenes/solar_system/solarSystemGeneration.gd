@@ -2,6 +2,8 @@ extends Node2D
 
 #exports
 @export var debug: bool = false
+@export var xScale: float = 200000.0
+@export var yScale: float = 200000.0
 
 
 #inmports
@@ -37,8 +39,7 @@ func initPlanets():
 		
 		#init position 
 		#TODO: need to devise scale the init x position and the iterated positions should be halved by that scale
-		print(currentPlanet.position.x )
-		currentPlanet.position.x = currentPlanet.distance_from_sun
+		currentPlanet.position.x = floor(currentPlanet.distance_from_sun / xScale)
 		print(currentPlanet.position.x )
 		#TODO: the init Y position should be based off the DateObjects current date and the planets orbital period
 		
