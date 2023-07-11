@@ -9,7 +9,7 @@ var isDragging = false
 var dragStart = Vector2()
 
 func _ready():
-	zoom = Vector2(1, 1)
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event):
@@ -78,18 +78,23 @@ func _process(delta):
 				print("Right detected, position x increased by " + str(panSpeed))
 				print(delta)
 	if Input.is_action_pressed("ui_zoom_in"):
-		zoom.x += zoomIncrement
-		zoom.y += zoomIncrement
 		if debug:
 			print("Zoom in detected, zoom increased by " + str(zoomIncrement))
+			print(zoom)
+		zoom.x += zoomIncrement
+		zoom.y += zoomIncrement
+		
 	if Input.is_action_pressed("ui_zoom_out"):
 		if get_zoom() == Vector2(1, 1):
 			return
 		else:
-			zoom.x -= zoomIncrement
-			zoom.y -= zoomIncrement
 			if debug:
 				print("Zoom out detected, zoom decreased by " + str(zoomIncrement))
+				print(zoom)
+			zoom.x -= zoomIncrement
+			zoom.y -= zoomIncrement
+			
+				
 	#TODO: ["FINISHED"] add button to reset position
 	#TODO: ["FINISHED"] add button to reset zoom
 	if Input.is_action_pressed("ui_home"):
@@ -102,8 +107,9 @@ func _process(delta):
 		
 
 		
-
+		
 		
 
 		#BUG: fix mousewheel input not being registered in godot
 			
+

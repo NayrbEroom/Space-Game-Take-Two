@@ -8,7 +8,7 @@ var year : int
 var seconds : int
 
 @warning_ignore("shadowed_variable")
-func _init(day : int, month : int, year : int, seconds : int):
+func _init(month : int, day : int, year : int, seconds : int):
 	self.day = day
 	self.month = month
 	self.year = year
@@ -23,6 +23,12 @@ func setDay(value : int) -> void:
 
 func getDay() -> int:
 	return day
+	
+func getDayOfYear() -> int:
+	var dayOfYear = day
+	for i in range(1, month):
+		dayOfYear += self.daysInMonth(i, year)
+	return dayOfYear
 
 func setMonth(value : int) -> void:
 	if value >= 1 and value <= 12:
@@ -76,4 +82,4 @@ func daysInMonth(month, year) -> int:
 		return 31
 
 func printDate():
-	print("Date: %s/%s/%s/%s" % [day, month, year, seconds])
+	print("Date: %s/%s/%s/%s" % [month, day, year, seconds])
